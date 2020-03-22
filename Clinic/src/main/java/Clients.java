@@ -1,30 +1,32 @@
 
 
-public class Client {
+public class Clients {
     private String clientIdName;
-    private Pets petName;
+    private Pets pets;
 
-    public Client(String clientIdName, Pets petName){
+    public Clients (String clientIdName, Pets pets){
         this.clientIdName = clientIdName;
-        this.petName = petName;
+        this.pets = pets;
     }
-
     public void setClientIdName(String clientIdName){
         this.clientIdName = clientIdName;
+    }
+    public void setPets(String setPetName){
+        this.pets.setPetName(setPetName);
     }
     public String getClientIdName(){
         return clientIdName;
     }
-    public String getPetName(){
-        return petName.getPetName();
+    public String getPets(){
+        return pets.getPetName();
     }
     public String getPetType(){
-        return petName.getPetType();
+        return pets.getPetType();
     }
-
 
     @Override
     public String toString() {
-        return "Client: " + clientIdName + '\'' +  ", petName: " + petName.getPetName() + ", petType: " + petName.getPetType();
+        return "Client: " + clientIdName + '\'' +  ", petName: " + pets.getPetName() + ", petType: " + pets.getPetType();
     }
+
 }
