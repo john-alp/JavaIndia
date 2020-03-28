@@ -1,9 +1,9 @@
+import java.io.Serializable;
 
-
-public class Clients {
-    private String clientIdName;
-    private Pets pets;
-
+public class Clients implements Serializable {
+   String clientIdName;
+   Pets pets;
+    public Clients(){}
     public Clients (String clientIdName, Pets pets){
         this.clientIdName = clientIdName;
         this.pets = pets;

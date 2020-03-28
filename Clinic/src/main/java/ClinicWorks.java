@@ -1,6 +1,8 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
 import java.util.*;
 
 /**
@@ -17,47 +19,11 @@ import java.util.*;
  * - Удалять клиента и питомца
  * - Возможность проверки
  */
-public class ClinicWorks {
-    String exit = "no";
-    String notFound = "Sorry, not found...";
-
-    List<Clients> arrayList = new ArrayList<>();
-
-    public static void main(String[] args) throws IOException {
-        ClinicWorks clinicWorks = new ClinicWorks();
-        System.out.println("Pet clinic...  (c) demiurg");
-        clinicWorks.start();
-    }
-
-    public void start() throws IOException {
-        ClinicWorks clinicWorks = new ClinicWorks();
-        while (exit.equals("no")) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println();
-            System.out.println("Selected action: ");
-            System.out.println("1 - add a client, " + " 2 - delete client, " + " 3 - Find client, " + " 4 - Find pet. \n" + "5 - rename client, " + " 6 - rename pet, " +
-                    "7 - Watch all the clients, " + " 9 - Exit to program...");
-            switch (Integer.parseInt(reader.readLine())){
-                case 1 : clinicWorks.addClient();
-                    break;
-                case 2 : clinicWorks.delClient();
-                    break;
-                case 3 : clinicWorks.findClient();
-                    break;
-                case 4 : clinicWorks.findPet();
-                    break;
-                case 5 : clinicWorks.renameClient();
-                    break;
-                case 6 : clinicWorks.renamePet();
-                    break;
-                case 7 : clinicWorks.showAll();
-                    break;
-                case 9 : exit = "yes";
-                    break;
-                default:
-                    System.out.println("default");
-            }
-        }
+public class ClinicWorks implements Serializable {
+    public ClinicWorks(){}
+    private List<Clients> arrayList = new ArrayList<>();
+        public List<Clients> getArrayList() {
+        return arrayList;
     }
     // case 1
     public void addClient(){
@@ -68,12 +34,12 @@ public class ClinicWorks {
                 return;
             }
         }
-         Clients client = new Clients(nameClient, new Pets (getFromKeyboard("Input name pets: "),
-                                                            getFromKeyboard("Input type pets: ")));
-//        Clients client = new Clients("Ta",new Pets("Varya","Cat"));
-//        Clients client1 = new Clients("Da",new Pets("kroko","Dog"));
+//         Clients client = new Clients(nameClient, new Pets (getFromKeyboard("Input name pets: "),
+//                                                            getFromKeyboard("Input type pets: ")));
+        Clients client = new Clients("Tatiana",new Pets("Varya","Cat"));
+        Clients client1 = new Clients("Daria",new Pets("May","Dog"));
           arrayList.add(client);
-//        arrayList.add(client1);
+        arrayList.add(client1);
 //
 
 
@@ -93,7 +59,7 @@ public class ClinicWorks {
                 return;
             }
         }
-        System.out.println(notFound);
+        System.out.println("Sorry, not found...");
     }
 
     // case 3
@@ -108,7 +74,7 @@ public class ClinicWorks {
                 return;
             }
         }
-        System.out.println(notFound);
+        System.out.println("Sorry, not found...");
     }
     // case 4
     public void findPet() {
@@ -119,7 +85,7 @@ public class ClinicWorks {
                 System.out.println("The search is successful.." + arrayList.get(i).getPets());
                 return;
             }
-        System.out.println(notFound);
+        System.out.println("Sorry, not found...");
     }
     public void renameClient(){
         ClinicWorks clinicWorks = new ClinicWorks();
@@ -134,7 +100,7 @@ public class ClinicWorks {
                 return;
             }
         }
-        System.out.println(notFound);
+        System.out.println("Sorry, not found...");
     }
     public void renamePet(){
         ClinicWorks clinicWorks = new ClinicWorks();
@@ -146,7 +112,7 @@ public class ClinicWorks {
                 return;
             }
         }
-        System.out.println(notFound);
+        System.out.println("Sorry, not found...");
     }
     public void showAll(){
         // ClinicWorks clinicWorks = new ClinicWorks();
@@ -158,10 +124,7 @@ public class ClinicWorks {
             System.out.println(arrayList.get(i));
         }
     }
-    public void exit(String exit) {
-        System.out.println(exit);
-        this.exit = exit;
-    }
+
 
     public String getFromKeyboard(String input) {
         System.out.println(input);
@@ -171,6 +134,15 @@ public class ClinicWorks {
         } catch (IOException e) {
             return "Something went wrong.. " + e.getStackTrace();
         }
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "ClinicWorks{" +
+                "arrayList=" + arrayList +
+                '}';
     }
 }
 

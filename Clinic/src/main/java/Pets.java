@@ -1,8 +1,9 @@
 
 public class Pets {
-    private String petName;
-    private String petType;
+     String petName;
+    String petType;
 
+    public Pets(){}
     public Pets(String petName, String petType){
         this.petName = petName;
         this.petType = petType;
