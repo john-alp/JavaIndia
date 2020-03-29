@@ -1,0 +1,27 @@
+import java.io.Serializable;
+
+public class Pets implements Serializable {
+    public Pets(){}
+    public Pets(String namePet, String typePet){
+        this.namePet = namePet;
+        this.typePet = typePet;
+    }
+    private String namePet;
+    private String typePet;
+
+    public String getNamePet(){
+        return namePet;
+    }
+    public String getTypePet(){
+        return typePet;
+    }
+    public void setNamePet(String namePet){
+        this.namePet = namePet;
+    }
+    public void setTypePet(String typePet){
+        this.typePet = typePet;
+    }
+    public String toString(){
+        return "pet: " + namePet + " type " + typePet;
+    }
+}
