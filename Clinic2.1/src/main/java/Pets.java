@@ -1,5 +1,7 @@
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
+import java.io.Serializable;
+@JsonAutoDetect
 public class Pets implements Serializable {
     public Pets(){}
     public Pets(String namePet, String typePet){
