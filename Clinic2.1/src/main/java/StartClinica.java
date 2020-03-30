@@ -34,9 +34,11 @@ public class StartClinica {
                 switch (Integer.parseInt(scanner.nextLine())) {
                     case 0 : serializable.writeJsonToFile(workingClinic);
                         break;
-                    case 1 : workingClinic.addClient();
+                    case 1 :  workingClinic.addClient(workingClinic.enterOfKeybord("Enter the client name: "),
+                              workingClinic.enterOfKeybord("Enter the pet's name: "),
+                              workingClinic.enterOfKeybord("Enter the pet's type: "));
                         break;
-                    case 2 : workingClinic.findClient();
+                    case 2  : workingClinic.findClient("Name of the client we are looking for: ");
                         break;
                     case 3 : workingClinic.findPet();
                         break;

@@ -6,17 +6,13 @@ import java.util.Scanner;
 public class WorkingClinic implements Serializable {
  public     List<Clients> arrayList = new ArrayList<Clients>();
 // case 1
-    public void addClient(){
-        String nameClient = enterOfKeybord("Enter the client name: ");
-        String namePet = enterOfKeybord("Enter the pet's name: ");
-        String typePet = enterOfKeybord("Enter the pet's type: ");
-Clients clients = new Clients(nameClient, new Pets(namePet,typePet));
-arrayList.add(clients);
+    public void addClient(String nameClient, String namePet, String typePet){
+        Clients clients = new Clients(nameClient, new Pets(namePet,typePet));
+        arrayList.add(clients);
         System.out.println(clients);
     }
 // case 2
-    public void findClient(){
-        String nameClient = enterOfKeybord("Name of the client we are looking for: ");
+    public void findClient(String nameClient){
     for (int i = 0; i < arrayList.size(); i++){
         if (arrayList.get(i).getNamePeople().equals(nameClient)){
             System.out.println("The client found! " + arrayList.get(i).getNamePeople() + ". And his Pets: "
