@@ -8,8 +8,8 @@ public class Pets implements Serializable {
         this.namePet = namePet;
         this.typePet = typePet;
     }
-    private String namePet;
-    private String typePet;
+    private String namePet = "Myrka";
+    private String typePet = "Cat";
 
     public String getNamePet(){
         return namePet;
@@ -24,6 +24,6 @@ public class Pets implements Serializable {
         this.typePet = typePet;
     }
     public String toString(){
-        return "pet: " + namePet + " type " + typePet;
+        return "pet: " + namePet + ", type " + typePet;
     }
 }

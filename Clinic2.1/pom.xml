@@ -7,6 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>Clinic2.1</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <build>
         <plugins>
             <plugin>
@@ -19,6 +20,9 @@
             </plugin>
         </plugins>
     </build>
+
+
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>

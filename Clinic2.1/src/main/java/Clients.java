@@ -8,7 +8,7 @@ public class Clients implements Serializable {
         this.namePeople = namePeople;
         this.pet = pet;
     }
-    private String namePeople;
+    private String namePeople = "people";
     private Pets pet;
 
     public String getNamePeople(){
@@ -24,6 +24,6 @@ public class Clients implements Serializable {
         this.pet = pet;
     }
     public String toString(){
-        return "client: " + namePeople + ", \n " + pet;
+        return "client: " + namePeople + ", " + pet;
     }
 }
