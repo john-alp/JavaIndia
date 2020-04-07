@@ -21,7 +21,7 @@ import java.util.*;
  */
 public class ClinicWorks implements Serializable {
     public ClinicWorks(){}
-    private List<Clients> arrayList = new ArrayList<>();
+    public List<Clients> arrayList = new ArrayList<>();
         public List<Clients> getArrayList() {
         return arrayList;
     }
@@ -37,9 +37,9 @@ public class ClinicWorks implements Serializable {
 //         Clients client = new Clients(nameClient, new Pets (getFromKeyboard("Input name pets: "),
 //                                                            getFromKeyboard("Input type pets: ")));
         Clients client = new Clients("Tatiana",new Pets("Varya","Cat"));
-        Clients client1 = new Clients("Daria",new Pets("May","Dog"));
+   //     Clients client1 = new Clients("Daria",new Pets("May","Dog"));
           arrayList.add(client);
-        arrayList.add(client1);
+ //       arrayList.add(client1);
 //
 
 

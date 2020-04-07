@@ -1,6 +1,8 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
+import java.util.Scanner;
 
 public class StartClinic {
     String exit = "no";
@@ -13,9 +15,11 @@ StartClinic startClinic = new StartClinic();
 
     }
         public void start() throws IOException {
-         //   ClinicWorks clinicWorks = new writeAndReadJson.readJsonFile();
-ClinicWorks clinicWorks = new ClinicWorks();
-clinicWorks = writeAndReadJson.readJsonFile();
+            ClinicWorks clinicWorks = new ClinicWorks();
+            ClinicWorks temp = readJsonFile();
+            System.out.println(temp);
+//ClinicWorks clinicWorks = new ClinicWorks();
+      //      clinicWorks = writeAndReadJson.readJsonFile();
             while (exit.equals("no")) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println();
@@ -24,8 +28,6 @@ clinicWorks = writeAndReadJson.readJsonFile();
                 "7 - Watch all the clients, " + " 9 - Exit to program...");
         switch (Integer.parseInt(reader.readLine())){
             case 0 : writeAndReadJson.writeJsonFile(clinicWorks);
-                break;
-            case 11 : writeAndReadJson.readJsonFile();
                 break;
             case 1 : clinicWorks.addClient();
                 break;
@@ -48,4 +50,15 @@ clinicWorks = writeAndReadJson.readJsonFile();
         }
     }
 }
+    public static ClinicWorks readJsonFile() throws FileNotFoundException, JsonProcessingException {
+        //ClinicWorks clinicWorks;
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file = new File("jsonFile");
+        Scanner scanner = new Scanner(file);
+        String result = scanner.nextLine();
+        ClinicWorks clinicWorks = objectMapper.readValue(result, ClinicWorks.class);
+        System.out.println(clinicWorks);
+        scanner.close();
+        return clinicWorks;
+    }
 }

@@ -1,9 +1,10 @@
+import java.io.Serializable;
 
-public class Pets {
-     String petName;
-    String petType;
-
+public class Pets implements Serializable {
     public Pets(){}
+    public String petName;
+    public String petType;
+
     public Pets(String petName, String petType){
         this.petName = petName;
         this.petType = petType;

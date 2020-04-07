@@ -16,15 +16,15 @@ public class WriteAndReadJson implements Serializable {
         printWriter.println(result);
         printWriter.close();
     }
-    public ClinicWorks readJsonFile() throws FileNotFoundException, JsonProcessingException {
-    ClinicWorks clinicWorks;
-    ObjectMapper objectMapper = new ObjectMapper();
-    File file = new File("jsonFile");
-    Scanner scanner = new Scanner(file);
-      String result = scanner.nextLine();
-       clinicWorks = objectMapper.readValue(result, ClinicWorks.class);
-        System.out.println(clinicWorks);
-        scanner.close();
-        return clinicWorks;
-    }
+//    public ClinicWorks readJsonFile() throws FileNotFoundException, JsonProcessingException {
+//    //ClinicWorks clinicWorks;
+//    ObjectMapper objectMapper = new ObjectMapper();
+//    File file = new File("jsonFile");
+//    Scanner scanner = new Scanner(file);
+//      String result = scanner.nextLine();
+//      ClinicWorks clinicWorks = objectMapper.readValue(result, ClinicWorks.class);
+//        System.out.println(clinicWorks);
+//        scanner.close();
+//        return clinicWorks;
+//    }
 }
